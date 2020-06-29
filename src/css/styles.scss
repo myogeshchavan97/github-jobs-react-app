@@ -1,0 +1,276 @@
+$body-color: #949ca5;
+$default-padding: 2rem;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1.6rem;
+  background: #242582;
+  color: $body-color;
+  min-height: 100vh;
+  letter-spacing: 1px;
+}
+
+ul {
+  margin-left: 1rem;
+}
+
+.header {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  .title {
+    font-weight: 600;
+    font-size: 3rem;
+    color: #fff;
+  }
+}
+
+.search-section {
+  width: 70%;
+  margin: 20px auto;
+
+  input {
+    padding: $default-padding;
+    font-size: 1.5rem;
+  }
+
+  .btn-search {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    width: 13rem;
+    line-height: 1.5;
+    color: #fff;
+    border: none;
+  }
+}
+
+.filters {
+  display: flex;
+  width: 70%;
+
+  .filter-btn {
+    margin: 2rem;
+    margin-left: 0;
+    padding: 1rem;
+    display: block;
+    border: 1px solid #888;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  .active {
+    background: #0069d9;
+    color: #fff;
+  }
+  .full-time-checkbox {
+    input {
+      margin-top: 0.5rem;
+    }
+    label {
+      margin-left: 1rem;
+    }
+  }
+}
+
+.search-results {
+  width: 90%;
+  margin: 0 auto;
+
+  .job-item {
+    display: flex;
+    padding: 1rem;
+    border: 1px solid #000;
+    border-radius: 0.5rem;
+    margin: 2rem;
+    cursor: pointer;
+
+    & > div {
+      margin-left: 2rem;
+    }
+
+    &:hover {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+
+    .job-info {
+      .job-title {
+        margin-bottom: 2rem;
+      }
+    }
+
+    .company-logo {
+      img {
+        max-width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+      }
+    }
+
+    .job-info {
+      flex: 1;
+    }
+
+    .post-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.load-more {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5rem;
+
+  button {
+    border: none;
+    background: #0e7bff;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    letter-spacing: 1px;
+    outline: none;
+  }
+}
+
+.job-details {
+  width: 90%;
+  margin: 50px auto;
+
+  .back-link {
+    a:link,
+    a:visited {
+      display: block;
+      margin-bottom: 1rem;
+    }
+    a:hover,
+    a:active {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  .title {
+    font-weight: bold;
+  }
+
+  .main-section {
+    display: flex;
+
+    .left-section {
+      flex: 2;
+      margin: 0;
+      margin-right: 2rem;
+    }
+
+    .right-section {
+      flex: 1;
+      margin: 5rem 0 0 0;
+
+      & > div {
+        margin-bottom: 5rem;
+      }
+
+      h3 {
+        margin-bottom: 1rem;
+      }
+
+      .company-details {
+        .company-logo {
+          max-width: 10rem;
+          height: 10rem;
+          border-radius: 50%;
+        }
+        .company-name {
+          margin-top: 1rem;
+        }
+        .company-url {
+          word-break: break-all;
+        }
+      }
+
+      .how-to-apply {
+        a {
+          display: inline-block;
+          word-break: break-all;
+        }
+      }
+    }
+  }
+}
+
+.loading {
+  font-size: 2rem;
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.errorMsg {
+  max-width: 70%;
+  margin: 0 auto;
+  color: #f21e08;
+  padding: 1rem;
+  letter-spacing: 2px;
+}
+
+.hide {
+  display: none;
+}
+
+@media only screen and (max-width: 992px) {
+  .search-section {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .search-form {
+    .row {
+      flex-direction: column;
+    }
+    .col {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .search-section .btn-search {
+    width: 100%;
+  }
+
+  .job-item {
+    flex-direction: column;
+  }
+
+  .search-results .job-item .post-info {
+    display: inline;
+    margin: 2rem 0 0 2rem;
+  }
+
+  .main-section {
+    flex-direction: column;
+  }
+
+  .job-info .job-title {
+    margin-top: 1rem;
+  }
+}
