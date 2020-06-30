@@ -1,8 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import JobsContext from '../context/jobs';
 
 const JobDetails = () => {
   const { details, onResetPage } = useContext(JobsContext);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const {
     type,
