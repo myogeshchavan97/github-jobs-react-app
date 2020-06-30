@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
+import JobsContext from '../context/jobs';
 
-const Search = (props) => {
+const Search = () => {
+  const { onSearch } = useContext(JobsContext);
+
   const [state, setState] = useState({
     description: '',
     location: '',
@@ -26,7 +29,7 @@ const Search = (props) => {
   const handleSearch = (event) => {
     event.preventDefault();
     console.log(state);
-    props.onSearch(state);
+    onSearch(state);
   };
 
   return (

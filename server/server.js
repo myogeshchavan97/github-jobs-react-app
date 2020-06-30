@@ -17,7 +17,6 @@ app.get('/jobs', async (req, res) => {
     description = description ? encodeURIComponent(description) : '';
     location = location ? encodeURIComponent(location) : '';
     full_time = full_time === 'true' ? '&full_time=true' : '';
-
     if (page) {
       page = parseInt(page);
       page = isNaN(page) ? '' : `&page=${page}`;

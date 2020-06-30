@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import JobsContext from '../context/jobs';
 
-const JobDetails = ({ details, onResetPage }) => {
+const JobDetails = () => {
+  const { details, onResetPage } = useContext(JobsContext);
+
   const {
     type,
     title,
