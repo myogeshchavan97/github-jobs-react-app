@@ -8,6 +8,7 @@ import Search from './Search';
 import Results from './Results';
 import JobDetails from './JobDetails';
 import JobsContext from '../context/jobs';
+import Loader from './Loader';
 
 const HomePage = (props) => {
   const [results, setResults] = useState([]);
@@ -17,6 +18,7 @@ const HomePage = (props) => {
   const [page, setPage] = useState('home');
   const [pageNumber, setPageNumber] = useState(1);
   const [selection, setSelection] = useState(null);
+  const [hideLoadMore, setHideLoadMore] = useState(false);
 
   useEffect(() => {
     setResults(props.jobs);
@@ -38,7 +40,12 @@ const HomePage = (props) => {
     dispatch(
       initiateGetJobs({ description, location, full_time, page }, isLoadMore)
     )
-      .then(() => {
+      .then((response) => {
+        if (response && response.jobs.length === 0) {
+          setHideLoadMore(true);
+        } else {
+          setHideLoadMore(false);
+        }
         setIsLoading(false);
       })
       .catch(() => setIsLoading(false));
@@ -78,6 +85,7 @@ const HomePage = (props) => {
 
   return (
     <JobsContext.Provider value={value}>
+      <Loader show={isLoading}>Loading...</Loader>
       <div className={`${page === 'details' && 'hide'}`}>
         <Header />
         <Search />
@@ -87,8 +95,7 @@ const HomePage = (props) => {
           </div>
         )}
         <Results />
-        {isLoading && <p className="loading">Loading...</p>}
-        {results.length > 0 && _.isEmpty(errors) && (
+        {results.length > 0 && _.isEmpty(errors) && !hideLoadMore && (
           <div
             className="load-more"
             onClick={isLoading ? null : handleLoadMore}
