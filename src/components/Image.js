@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import loading from '../images/loading.png';
 
 /* https://via.placeholder.com/100x100?text=Loading */
@@ -27,6 +28,11 @@ const Image = ({ src, alt, ...props }) => {
       />
     </React.Fragment>
   );
+};
+
+Image.propTypes = {
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired
 };
 
 export default Image;

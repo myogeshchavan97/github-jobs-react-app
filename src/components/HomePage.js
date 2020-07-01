@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { initiateGetJobs } from '../actions/jobs';
 import { resetErrors } from '../actions/errors';
@@ -114,6 +115,11 @@ const HomePage = (props) => {
       </div>
     </JobsContext.Provider>
   );
+};
+
+HomePage.propTypes = {
+  jobs: PropTypes.array.isRequired,
+  errors: PropTypes.object
 };
 
 const mapStateToProps = (state) => ({

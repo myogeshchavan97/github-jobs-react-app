@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 const Loader = (props) => {
   const [node] = useState(document.createElement('div'));
@@ -20,6 +21,10 @@ const Loader = (props) => {
   }, [loader, props.show]);
 
   return ReactDOM.createPortal(props.children, node);
+};
+
+Loader.propTypes = {
+  show: PropTypes.bool.isRequired
 };
 
 export default Loader;
