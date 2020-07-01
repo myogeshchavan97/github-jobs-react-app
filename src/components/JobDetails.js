@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import JobsContext from '../context/jobs';
+import Image from './Image';
 
 const JobDetails = () => {
   const { details, onResetPage } = useContext(JobsContext);
@@ -41,7 +42,7 @@ const JobDetails = () => {
         <div className="right-section">
           <div className="company-details">
             <h3>About company</h3>
-            <img src={company_logo} alt={company} className="company-logo" />
+            <Image src={company_logo} alt={company} className="company-logo" />
             <div className="company-name">{company}</div>
             <a className="company-url" href={company_url}>
               {company_url}
