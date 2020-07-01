@@ -29,6 +29,6 @@ app.get('/jobs', async (req, res) => {
   }
 });
 
-app.listen(PORT, (req, res) => {
+app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`);
 });
