@@ -21,11 +21,10 @@
     "redux-thunk": "2.3.0"
   },
   "scripts": {
-    "start-client": "react-scripts start",
-    "build": "react-scripts build && (cd server && yarn install)",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "start": "cd server && yarn start"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
